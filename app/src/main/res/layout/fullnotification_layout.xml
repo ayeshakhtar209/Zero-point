@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:paddingLeft="5dp"
+    android:paddingTop="0dp"
+    android:paddingRight="5dp"
+    android:background="@color/whitePrimary"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.ramotion.foldingcell.FoldingCell
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/folding_cell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="6">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/fullnotificationLayoutHolder"
+                android:layout_width="match_parent"
+                android:layout_height="101dp"
+                android:layout_weight="2"
+                android:adjustViewBounds="true"
+                app:roundBottomRight="false"
+                app:roundingBorderColor="#000"
+                app:roundingBorderWidth="20dp"
+                fresco:actualImageScaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/full_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:paddingLeft="12dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp"
+                android:text="title"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/full_DateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:includeFontPadding="false"
+                android:paddingLeft="12dp"
+                android:paddingTop="4dp"
+                android:paddingRight="12dp"
+                android:text="Date"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+    </com.ramotion.foldingcell.FoldingCell>
+</LinearLayout>

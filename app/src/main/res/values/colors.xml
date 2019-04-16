@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#AFADAD</color>
+    <color name="colorAccent">#A5A1A1</color>
+    <color name="black">#000000</color>
+    <color name="transparentBlack">#B3000000</color>
+    <color name="white">#ffffff</color>
+    <color name="blueGrey">#CFD8DC</color>
+    <color name="background">#f5f5f5</color>
+    <color name="lightGreen">#B2DFDB</color>
+    <color name="red">#ff3d00</color>
+    <color name="backgroundGrey">#E0E0E0</color>
+    <color name="darkGrey">#9A9A9A</color>
+    <color name="tint">#5226A69A</color>
+    <color name="locationMarker_red">#CA2A29</color>
+    <color name="fAb">#e0f2f1</color>
+</resources>
