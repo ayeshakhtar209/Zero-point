@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /*import com.twitter.sdk.android.tweetui.TweetTimelineRecyclerViewAdapter;
@@ -49,8 +50,8 @@ public class DashboardFragment extends Fragment {
     Button dataBtn;
     Button contactBtn;
 
-    Button expandNotifs;
-    Button expandTwts;
+    TextView expandNotifs;
+    TextView expandTwts;
 
     public static DashboardFragment newInstance() {
         DashboardFragment dashboardFragment = new DashboardFragment();
@@ -88,7 +89,7 @@ public class DashboardFragment extends Fragment {
         });
 //////////////////////////////////////////////////////////////////////////////////
 
-        expandNotifs = (Button) view.findViewById(R.id.expand_notifications);
+        expandNotifs = view.findViewById(R.id.expand_notifications);
 
         expandNotifs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +111,7 @@ public class DashboardFragment extends Fragment {
 
         ////////////////////////////////////////////////////
 
-        expandTwts = (Button) view.findViewById(R.id.expand_tweets);
+        expandTwts = view.findViewById(R.id.expand_tweets);
         expandTwts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

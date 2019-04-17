@@ -43,7 +43,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/broder_round_corner"
+        android:background="@drawable/border_round_corner"
         android:gravity="top"
         android:lines="3"
         android:padding="4dp"

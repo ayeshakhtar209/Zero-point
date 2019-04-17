@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:hint="Verification Code"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/broder_round_corner"
+        android:background="@drawable/border_round_corner"
         android:inputType="number"
         android:maxLength="6"
         android:padding="16dp"

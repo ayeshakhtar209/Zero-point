@@ -46,7 +46,7 @@
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:background="@drawable/circle_notification_count"/>
+                        android:background="@drawable/border_round_corner"/>
             </LinearLayout>
 
 
