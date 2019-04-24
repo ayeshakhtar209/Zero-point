@@ -26,7 +26,7 @@ public class TwitterActivity extends AppCompatActivity {
 
         TwitterAdapter = new TweetTimelineRecyclerViewAdapter.Builder(this)
                 .setTimeline(userTimeline)
-                .setViewStyle(R.style.tw__TweetLightWithActionsStyle)
+                .setViewStyle(R.style.tw__TweetLightStyle)
                 .build();
         Tweets.setAdapter(TwitterAdapter);
     }

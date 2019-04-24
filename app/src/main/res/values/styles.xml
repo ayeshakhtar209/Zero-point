@@ -23,7 +23,7 @@
 
     <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
         <item name="android:src">@drawable/info</item>
-        <item name="android:tint">@color/white</item>
+        <item name="android:tint">@color/black</item> <!-- WHAT IS THIS?!-->
 
     </style>
 </resources>

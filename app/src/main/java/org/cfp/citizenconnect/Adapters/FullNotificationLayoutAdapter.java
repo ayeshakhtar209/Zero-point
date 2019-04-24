@@ -17,20 +17,14 @@ import org.cfp.citizenconnect.R;
 
 import java.util.List;
 
-/**
- * Created by shahzaibshahid on 13/12/2017.
- */
-
 public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNotificationLayoutAdapter.MyViewHolder> {
-    List<Notifications> notificationList;
-    Context mContext;
+    private List<Notifications> notificationList;
+    private Context mContext;
     private static OnItemInteractionListener mListener;
     private LayoutInflater inflater;
 
-
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
-
 
     public FullNotificationLayoutAdapter(Context mContext, List<Notifications> snapList, OnItemInteractionListener mListener) {
         this.notificationList = snapList;
@@ -42,7 +36,7 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
     public FullNotificationLayoutAdapter(Context mContext, List<Notifications> snapList) {
         this.notificationList = snapList;
         this.mContext = mContext;
-// ????????
+        // ????????
         //inflater = LayoutInflater.from(mContext);
 
     }
@@ -56,8 +50,8 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
             case VIEW_ITEM:
                 itemView = LayoutInflater.from(mContext).inflate(R.layout.fullnotification_layout, parent, false);
                 break;
-                default:
-                    itemView = LayoutInflater.from(mContext).inflate(R.layout.fullnotification_layout, parent, false);
+            default:
+                itemView = LayoutInflater.from(mContext).inflate(R.layout.fullnotification_layout, parent, false);
         }
 
 /*        final FoldingCell fc = findViewById(R.id.folding_cell);
@@ -136,15 +130,12 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
             });
             view.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));
             descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));
-
             snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));
         }
     }
-
     public interface OnItemInteractionListener {
         void ShareImageClickListener(int position, Drawable image);
         void FullSizeImageClickListener(String imagePath, String description);
-
             snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString())); */
 
 

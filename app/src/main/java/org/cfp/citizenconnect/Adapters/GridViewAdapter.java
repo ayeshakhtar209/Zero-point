@@ -18,6 +18,8 @@ import org.cfp.citizenconnect.R;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by shahzaibshahid on 22/01/2018.
  */
@@ -57,6 +59,7 @@ public class GridViewAdapter extends BaseAdapter {
         SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
         TextView title = view.findViewById(R.id.titleGV);
         TextView titleAlphabet = view.findViewById(R.id.titleAlphabet);
+        /*CircleImageView*/
         CardView mCardView = view.findViewById(R.id.mainCV);
         LinearLayout background = view.findViewById(R.id.background);
         final Layout layout = (Layout) this.getItem(i);

@@ -97,6 +97,7 @@ dependencies {
     //implementation 'org.twitter4j:twitter4j-core:4.0.7'
     implementation 'com.twitter.sdk.android:twitter:3.3.0'
     implementation project(':folding-cell-1.2.3')
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'realm-android'

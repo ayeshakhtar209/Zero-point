@@ -17,7 +17,7 @@
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginLeft="8dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/darkGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <WebView
@@ -31,7 +31,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="8dp"
             android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/darkGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <WebView
@@ -45,7 +45,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="8dp"
             android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/darkGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <WebView
@@ -59,7 +59,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="8dp"
             android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/darkGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <WebView

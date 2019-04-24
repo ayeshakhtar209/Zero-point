@@ -125,12 +125,12 @@
     <Button
         android:id="@+id/closeButton"
         android:layout_width="wrap_content"
-        android:layout_gravity="right"
-        android:background="@null"
-        android:text="cancel"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/colorPrimary"
-        android:layout_height="wrap_content" />
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="right"
+        android:text="cancel"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@color/grey_85"/>
 </LinearLayout>

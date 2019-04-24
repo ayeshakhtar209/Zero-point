@@ -29,12 +29,12 @@ public class CreditsActivity extends AppCompatActivity {
         talha = findViewById(R.id.talha);
 
         asim.setText("\u2022 Asim Ghaffar");
-        hamid.setText("\u2022 Hamid");
+        hamid.setText("\u2022 Hamid Akhtar");
         kiran.setText("\u2022 Kiran Majeed");
-        yusra.setText("\u2022 Yusra");
-        wahib.setText("\u2022 Wahib");
-        ayesha1.setText("\u2022 Ayesha Mehmood");
-        ayesha2.setText("\u2022 Ayesha Akhtar");
+        yusra.setText("\u2022 Yusra Dar");
+        wahib.setText("\u2022 Wahib ul Haq");
+        ayesha1.setText("\u2022 Ayesha Akhtar");
+        ayesha2.setText("\u2022 Ayesha Mehmood");
         gulzaib.setText("\u2022 Gul Zaib");
         talha.setText("\u2022 Talha Khan");
 

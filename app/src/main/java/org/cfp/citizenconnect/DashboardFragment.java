@@ -127,7 +127,7 @@ public class DashboardFragment extends Fragment {
         tweetRView.setLayoutManager(tweetList);
 
         UserTimeline userTimeline = new UserTimeline.Builder().screenName("dcislamabad").maxItemsPerRequest(5).build();
-//        CollectionTimeline userTimeline = new CollectionTimeline.Builder().id(153032033L).build();
+//      CollectionTimeline userTimeline = new CollectionTimeline.Builder().id(153032033L).build();
         TweetAdapter = new TwitterTimelineRecyclerViewAdapter.Builder(getActivity()) //getContext()
                 .setTimeline(userTimeline)
                 .setViewStyle(R.style.tw__TweetLightStyle)

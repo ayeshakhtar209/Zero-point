@@ -8,7 +8,7 @@
         android:id="@+id/dataSet_GridView"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="@color/backgroundGrey"
+        android:background="@color/white"
         android:padding="12dp"
         android:verticalSpacing="8dp"
         android:horizontalSpacing="12dp"
