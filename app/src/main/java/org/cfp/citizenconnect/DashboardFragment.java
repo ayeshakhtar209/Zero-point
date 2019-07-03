@@ -53,6 +53,8 @@ public class DashboardFragment extends Fragment {
     TextView expandNotifs;
     TextView expandTwts;
 
+    CustomViewPager view_pager;
+
     public static DashboardFragment newInstance() {
         DashboardFragment dashboardFragment = new DashboardFragment();
         return dashboardFragment;
@@ -61,6 +63,8 @@ public class DashboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        /*view_pager.disableScroll(true);*/
 
         serviceBtn = (Button) view.findViewById(R.id.servicebttn);
         dataBtn = (Button) view.findViewById(R.id.databttn);
@@ -189,4 +193,5 @@ public class DashboardFragment extends Fragment {
         super.onStop();
         ((MainActivity)getActivity()).getSupportActionBar().show();
     }*/
+
 }

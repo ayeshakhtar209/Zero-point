@@ -10,9 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="120dp"
         android:layout_marginTop="15dp"
-        android:layout_weight="0.5"
         android:paddingBottom="0dp">
 
         <Button
@@ -21,7 +20,7 @@
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corners"
             android:backgroundTint="#00CBE4"
@@ -33,16 +32,15 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textStyle="bold" />
-
+            android:textStyle="" />
 
         <Button
             android:id="@+id/databttn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corners"
             android:backgroundTint="#FFC107"
@@ -53,7 +51,7 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textStyle="bold" />
+            android:textStyle="" />
 
         <Button
             android:drawableTop="@drawable/ic_services"
@@ -61,7 +59,7 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corners"
@@ -72,103 +70,108 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textStyle="bold" />
+            android:textStyle="" />
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="-20dp"
-        android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-20dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Updates"
-            android:textColor="@color/transparentBlack"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Updates"
+                android:textColor="@color/transparentBlack"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/expand_notifications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            <TextView
+                android:id="@+id/expand_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:textSize="12sp"
+                android:text="View All"
+                android:textColor="#037C56" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:textSize="12sp"
-            android:text="View All"
-            android:textColor="#037C56" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_weight="1">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/notification_dashList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
             android:background="@color/white"
-            android:overScrollMode="never"
-            android:divider="#0F89E0"
-            android:dividerHeight="0dp"
-            android:drawSelectorOnTop="false" />
+            android:orientation="horizontal"
+            android:padding="0dp">
 
-    </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/notification_dashList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:divider="#0F89E0"
+                android:dividerHeight="0dp"
+                android:drawSelectorOnTop="false" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginBottom="-15dp"
-        android:orientation="horizontal">
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:src="@drawable/twitter_logo"
-            android:layout_marginStart="-55dp" />
-
-        <TextView
-            android:id="@+id/expand_tweets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="View All"
-            android:textColor="#037C56"
-            android:textSize="12sp" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:padding="0dp">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/twitter_FeedList"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="#0F89E0"
-            android:dividerHeight="0dp"
-            android:drawSelectorOnTop="false" />
-    </LinearLayout>
+            android:layout_height="40dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-20dp"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:src="@drawable/twitter_logo"
+                android:layout_marginStart="-55dp" />
+
+            <TextView
+                android:id="@+id/expand_tweets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:text="View All"
+                android:textColor="#037C56"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="0dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/twitter_FeedList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#0F89E0"
+                android:dividerHeight="0dp"
+                android:drawSelectorOnTop="false" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

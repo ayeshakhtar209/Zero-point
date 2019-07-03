@@ -82,10 +82,10 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.0'
     implementation 'com.android.volley:volley:1.0.0'
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
-    implementation('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+/*    implementation('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
 
         transitive = true
-    }
+    }*/
     implementation 'pub.devrel:easypermissions:0.3.0'
     implementation('com.google.api-client:google-api-client-android:1.23.0') {
         exclude group: 'org.apache.httpcomponents'

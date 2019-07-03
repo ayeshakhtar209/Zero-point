@@ -25,7 +25,7 @@
             <LinearLayout
                 android:id="@+id/background"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -40,29 +40,31 @@
                     android:id="@+id/titleAlphabet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circle_notification_count"
                     android:gravity="center"
                     android:maxLines="1"
+                    android:padding="24dp"
                     android:text="D"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:background="@drawable/rounded_textview"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/titleGV"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:ellipsize="none"
-                android:padding="13dp"
+                android:layout_height="45dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:padding="16dp"
+                android:paddingBottom="0dp"
                 android:text="Drugs Store"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                android:textStyle="bold"
-                android:background="@color/white"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

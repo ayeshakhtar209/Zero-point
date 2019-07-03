@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
                 if (position == 0) {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.red));
-                    searchMenu.setVisible(true);
+                    /*searchMenu.setVisible(true);*/
                     bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
 
                 } else {
@@ -210,30 +210,30 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.notification_menu, menu);
-        searchMenu = menu.findItem(R.id.search);
-        SearchManager searchManager =
+        inflater.inflate(R.menu.home_menu, menu);
+        /*searchMenu = menu.findItem(R.id.search);
+        searchMenu.setVisible(false);*/
+
+        /*SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView =
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
 
-        searchView.setIconified(false);
-        searchView.setOnCloseListener(() -> {
+        searchView.setIconified(false);*/
+/*        searchView.setOnCloseListener(() -> {
             searchView.clearFocus();
             if (menuItem != null) {
                 menuItem.collapseActionView();
-
             }
-
             return true;
-        });
-        searchView.setOnSearchClickListener(view -> {
+        });*/
+        /*searchView.setOnSearchClickListener(view -> {
             setItemsVisibility(menu, searchMenu, false);
 
-        });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        });*/
+        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -247,8 +247,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 mSearch.OnSearchNotification(query);
                 return true;
             }
-
-        });
+        });*/
         return true;
     }
 
@@ -264,7 +263,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 return true;
             /*case R.id.:
                 bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);*/
-
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -277,7 +275,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
     @Override
     protected void onPause() {
-
         super.onPause();
         progress.dismiss();
         this.unregisterReceiver(this.mNotificationReceiver);
@@ -286,7 +283,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
     }
 
     @Override
@@ -314,7 +310,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         }
     }
 
-
     private void changeNotificationStatus(String count, @ColorInt int color) {
         bottomNavigation.setNotificationBackgroundColor(color);
         bottomNavigation.setNotification(count, 0);
@@ -335,10 +330,4 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         }
     }
 
-    private void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
-        for (int i = 0; i < menu.size(); ++i) {
-            MenuItem item = menu.getItem(i);
-            if (item != exception) item.setVisible(visible);
-        }
-    }
 }

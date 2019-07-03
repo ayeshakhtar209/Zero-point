@@ -93,7 +93,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             loadFromRealm();
         }
 
-
         binding.notificationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -106,13 +105,10 @@ public class FragmentNotification extends Fragment implements NotificationLayout
 
         FilesRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
@@ -120,24 +116,18 @@ public class FragmentNotification extends Fragment implements NotificationLayout
             }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) { }
         });
 
         View view = binding.getRoot();
         return view;
     }
 
-
     @Override
     public void onResume() {
-
         super.onResume();
         IntentFilter intentFilter = new IntentFilter(
                 "android.intent.action.MAIN");
@@ -154,7 +144,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         };
         getActivity().registerReceiver(mNotificationReceiver, intentFilter);
     }
-
 
     @Override
     public void onPause() {
@@ -230,9 +219,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
           fullNewsViewFragment.setPosition(position);
           fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
           fullNewsViewFragment.show(getFragmentManager(), "FullScreenNews");
-
-
-
       }
 
       @Override

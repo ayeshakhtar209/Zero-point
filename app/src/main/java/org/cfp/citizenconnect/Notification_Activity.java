@@ -2,6 +2,7 @@ package org.cfp.citizenconnect;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +16,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import android.widget.SearchView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 
 import org.cfp.citizenconnect.Adapters.FullNotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
+import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
@@ -33,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.realm.Case;
 import io.realm.RealmResults;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
@@ -48,13 +54,19 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
     ScrollStatus mScrollStatus;
     NotificationUpdate notificationUpdate;
     private BroadcastReceiver mNotificationReceiver;
-    MenuItem menuItem;
     SearchView searchView;
+    MenuItem searchMenu;
+    MenuItem menuItem;
+    public Search mSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.notification_fragment);
+
+        getSupportActionBar().setTitle("Notifications");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.in_progress_msg));
@@ -77,7 +89,6 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
             loadFromRealm();
         }
 
-
         binding.notificationList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -90,13 +101,10 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
 
         FilesRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
@@ -104,22 +112,28 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
             }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) { }
         });
 
         View view = binding.getRoot();
     }
 
     @Override
-    public void onResume() {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
+    @Override
+    public void onResume() {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter(
                 "android.intent.action.MAIN");
@@ -156,7 +170,6 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         this.unregisterReceiver(this.mNotificationReceiver);
     }
 
-
     private void loadFromRealm() {
         notificationsModel.clear();
         RealmResults<Notifications> realmResults = realm.where(Notifications.class).findAll();
@@ -184,7 +197,6 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         });
     }
 
-/*    @Override
     public void OnSearchNotification(String query) {
         notificationsModel.clear();
         RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll();
@@ -193,10 +205,10 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         }
         Collections.reverse(notificationsModel);
         LinearLayoutManager notificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        notificationListAdapter = new NotificationLayoutAdapter(this, notificationsModel, this);
+        fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel);
         binding.notificationList.setLayoutManager(notificationList);
-        binding.notificationList.setAdapter(notificationListAdapter);
-    }*/
+        binding.notificationList.setAdapter(fullnotificationListAdapter);
+    }
 
     public void updateRecyclerView() {
         binding.swipeRefreshLayout.setRefreshing(false);
@@ -205,5 +217,47 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         binding.notificationList.setLayoutManager(notificationList);
         binding.notificationList.setAdapter(fullnotificationListAdapter);
         progressDialog.dismiss();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.notification_menu, menu);
+        searchMenu = menu.findItem(R.id.search);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        searchView.setIconified(false);
+        searchView.setOnCloseListener(() -> {
+            searchView.clearFocus();
+            if (menuItem != null) {
+                menuItem.collapseActionView();
+            }
+            return true;
+        });
+        searchView.setOnSearchClickListener(view -> {
+                setItemsVisibility(menu, searchMenu, false);
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mSearch.OnSearchNotification(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mSearch.OnSearchNotification(query);
+                return true;
+            }
+        });
+        return true;
+    }
+    private void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
+        for (int i = 0; i < menu.size(); ++i) {
+            MenuItem item = menu.getItem(i);
+            if (item != exception) item.setVisible(visible);
+        }
     }
 }

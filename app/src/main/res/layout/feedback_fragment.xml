@@ -95,21 +95,21 @@
             android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/sendMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="12dp"
-            android:backgroundTint="@color/grey_85"
-            android:background="@drawable/button_round_corner"
-            android:elevation="2dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp"
-            android:text="Send Message"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
+    <Button
+        android:id="@+id/sendMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/button_round_corner"
+        android:backgroundTint="@color/darkGrey"
+        android:elevation="2dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:text="Send Message"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
 
 </LinearLayout>
