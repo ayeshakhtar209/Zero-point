@@ -40,9 +40,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 
-
 public class MainActivity extends AppCompatActivity implements ScrollStatus {
-
 
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 3;
     static final int CALL_PERMISSION_REQUEST = 1;
@@ -110,11 +108,9 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         mViewPager.setAdapter(mPageAdapter);
         currentItem = bottomNavigation.getCurrentItem();
 
-
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -132,13 +128,11 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 String count;
                 count = notificationUpdate.getNewNotification() == 0 ? "" : 1 + "";
 
-                if ( bottomNavigation.getCurrentItem() == 0 ) {
+                if (bottomNavigation.getCurrentItem() == 0) {
                     bottomNavigation.setVisibility(View.GONE);
 //                    bottomNavigation.hideBottomNavigation();
 //                    bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
-                }
-                else
-                {
+                } else {
                     bottomNavigation.setVisibility(View.VISIBLE);
                 }
 
@@ -161,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                 if (menuItem != null) {
                     menuItem.collapseActionView();
                 }
-
             }
         });
 
@@ -188,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
     @Override
     public void onResume() {
-
         super.onResume();
         IntentFilter intentFilter = new IntentFilter(
                 "android.intent.action.MAIN");
@@ -205,7 +197,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         };
         this.registerReceiver(mNotificationReceiver, intentFilter);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -231,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         });*/
         /*searchView.setOnSearchClickListener(view -> {
             setItemsVisibility(menu, searchMenu, false);
-
         });*/
         /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -243,7 +233,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public boolean onQueryTextChange(String query) {
-
                 mSearch.OnSearchNotification(query);
                 return true;
             }
@@ -287,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case CALL_PERMISSION_REQUEST: {
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
@@ -329,5 +318,4 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
             });
         }
     }
-
 }

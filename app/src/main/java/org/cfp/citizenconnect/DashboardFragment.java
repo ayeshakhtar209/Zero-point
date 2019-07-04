@@ -2,8 +2,10 @@ package org.cfp.citizenconnect;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +26,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
+import org.cfp.citizenconnect.Notification.FullNewsViewFragment;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
 
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements NotificationLayoutAdapter.OnItemInteractionListener{
     NotificationFragmentBinding binding;
     List<Notifications> notificationsModel = new ArrayList<>();
     NotificationLayoutAdapter notificationListAdapter;
@@ -66,9 +69,9 @@ public class DashboardFragment extends Fragment {
 
         /*view_pager.disableScroll(true);*/
 
-        serviceBtn = (Button) view.findViewById(R.id.servicebttn);
-        dataBtn = (Button) view.findViewById(R.id.databttn);
-        contactBtn = (Button) view.findViewById(R.id.contactsbttn);
+        serviceBtn = view.findViewById(R.id.servicebttn);
+        dataBtn = view.findViewById(R.id.databttn);
+        contactBtn = view.findViewById(R.id.contactsbttn);
 
         serviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +108,7 @@ public class DashboardFragment extends Fragment {
 
         notifPanel = view.findViewById(R.id.notification_dashList);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel);
+        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel,this);
         notifPanel.setLayoutManager(notificationList);
 
         notificationUpdate = NotificationUpdate.getInstance(realm);
@@ -177,10 +180,25 @@ public class DashboardFragment extends Fragment {
     public void updateRecyclerView() {
        // binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel);
+        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel,this);
         notifPanel.setLayoutManager(notificationList);
         notifPanel.setAdapter(notificationListAdapter);
         //progressDialog.dismiss();
+    }
+
+    @Override
+    public void ShareImageClickListener(int position, Drawable image) {
+
+    }
+
+    @Override
+    public void FullSizeImageClickListener(int position, String imagePath, String description) {
+        FullNewsViewFragment fullNewsViewFragment = new FullNewsViewFragment();
+        fullNewsViewFragment.setNotifications(notificationsModel);
+        fullNewsViewFragment.setPosition(position);
+        fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
+        fullNewsViewFragment.show(getFragmentManager(), "FullScreenNews");
+
     }
 
 /*    @Override

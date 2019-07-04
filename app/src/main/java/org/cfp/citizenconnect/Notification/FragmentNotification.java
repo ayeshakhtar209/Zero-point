@@ -25,6 +25,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
+import org.cfp.citizenconnect.Adapters.FullNotificationLayoutAdapter;
 import org.cfp.citizenconnect.Adapters.NotificationLayoutAdapter;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
@@ -47,12 +48,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
-
-/**
- * Created by shahzaibshahid on 18/01/2018.
- */
-
-public class FragmentNotification extends Fragment implements NotificationLayoutAdapter.OnItemInteractionListener, Search {
+public class FragmentNotification extends Fragment implements NotificationLayoutAdapter.OnItemInteractionListener {
     NotificationFragmentBinding binding;
     List<Notifications> notificationsModel = new ArrayList<>();
     NotificationLayoutAdapter notificationListAdapter;
@@ -60,7 +56,6 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     ScrollStatus mScrollStatus;
     NotificationUpdate notificationUpdate;
     private BroadcastReceiver mNotificationReceiver;
-
 
     public static FragmentNotification newInstance() {
         FragmentNotification fragmentNotification = new FragmentNotification();
@@ -151,12 +146,11 @@ public class FragmentNotification extends Fragment implements NotificationLayout
         getActivity().unregisterReceiver(this.mNotificationReceiver);
     }
 
-    @Override
+/*    @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
         ((MainActivity) getActivity()).mSearch = this;
-    }
-
+    }*/
 
     private void loadFromRealm() {
         notificationsModel.clear();
@@ -219,21 +213,21 @@ public class FragmentNotification extends Fragment implements NotificationLayout
           fullNewsViewFragment.setPosition(position);
           fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
           fullNewsViewFragment.show(getFragmentManager(), "FullScreenNews");
-      }
-
-      @Override
-    public void OnSearchNotification(String query) {
-        notificationsModel.clear();
-        RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll();
-        for (Notifications _Notifications : realmResults) {
-            notificationsModel.add(_Notifications);
-        }
-        Collections.reverse(notificationsModel);
-        LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, this);
-        binding.notificationList.setLayoutManager(notificationList);
-        binding.notificationList.setAdapter(notificationListAdapter);
     }
+
+/*      @Override
+      public void OnSearchNotification(String query) {
+            notificationsModel.clear();
+            RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll();
+            for (Notifications _Notifications : realmResults) {
+                notificationsModel.add(_Notifications);
+            }
+            Collections.reverse(notificationsModel);
+            LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+            FullNotificationLayoutAdapter fullnotificationListAdapter = new FullNotificationLayoutAdapter(getContext(), notificationsModel);
+            binding.notificationList.setLayoutManager(notificationList);
+            binding.notificationList.setAdapter(fullnotificationListAdapter);
+    }*/
 
     public void updateRecyclerView() {
         binding.swipeRefreshLayout.setRefreshing(false);

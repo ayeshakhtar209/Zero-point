@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +34,7 @@ import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Model.Notifications;
+import org.cfp.citizenconnect.Notification.FullNewsViewFragment;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
 
 import java.util.ArrayList;
@@ -45,7 +48,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
 
-public class Notification_Activity extends AppCompatActivity implements ScrollStatus{
+public class Notification_Activity extends AppCompatActivity implements ScrollStatus, FullNotificationLayoutAdapter.OnItemInteractionListener, Search {
 
     NotificationFragmentBinding binding;
     List<Notifications> notificationsModel = new ArrayList<>();
@@ -204,20 +207,21 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
             notificationsModel.add(_Notifications);
         }
         Collections.reverse(notificationsModel);
-        LinearLayoutManager notificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel);
-        binding.notificationList.setLayoutManager(notificationList);
+        LinearLayoutManager fullnotificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel,this);
+        binding.notificationList.setLayoutManager(fullnotificationList);
         binding.notificationList.setAdapter(fullnotificationListAdapter);
     }
 
     public void updateRecyclerView() {
         binding.swipeRefreshLayout.setRefreshing(false);
-        LinearLayoutManager notificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel);
-        binding.notificationList.setLayoutManager(notificationList);
+        LinearLayoutManager fullnotificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel,this);
+        binding.notificationList.setLayoutManager(fullnotificationList);
         binding.notificationList.setAdapter(fullnotificationListAdapter);
         progressDialog.dismiss();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -254,10 +258,22 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         });
         return true;
     }
+
     private void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
         for (int i = 0; i < menu.size(); ++i) {
             MenuItem item = menu.getItem(i);
             if (item != exception) item.setVisible(visible);
         }
+    }
+
+    @Override
+    public void ShareImageClickListener(int position, Drawable image) { }
+
+    @Override
+    public void FullSizeImageClickListener(int position, String imagePath, String description) {
+        FullNewsViewFragment fullNewsViewFragment = new FullNewsViewFragment();
+        fullNewsViewFragment.setPosition(position);
+        fullNewsViewFragment.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.Dialog_NoTitle);
+        fullNewsViewFragment.show(getSupportFragmentManager(), "FullScreenNews");
     }
 }

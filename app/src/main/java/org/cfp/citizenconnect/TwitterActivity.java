@@ -21,7 +21,7 @@ public class TwitterActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        Tweets = (RecyclerView) findViewById(R.id.TweetList);
+        Tweets = findViewById(R.id.TweetList);
 
         LinearLayoutManager tweetList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         Tweets.setLayoutManager(tweetList);

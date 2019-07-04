@@ -100,7 +100,7 @@ public class Services_GridViewAdapter extends BaseAdapter {
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#3da0e2"));
                 break;
             case "K":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#499b4f"));;
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#499b4f"));
                 break;
             case "L":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));

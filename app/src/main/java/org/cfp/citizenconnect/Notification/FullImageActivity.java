@@ -13,10 +13,6 @@ import com.squareup.picasso.Picasso;
 import org.cfp.citizenconnect.R;
 import static org.cfp.citizenconnect.MyUtils.frescoImageRequest;
 
-/**
- * Created by shahzaibshahid on 09/02/2018.
- */
-
 public class FullImageActivity extends Activity {
     String filePath;
 
