@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
         mPageAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPageAdapter);
+
         currentItem = bottomNavigation.getCurrentItem();
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -115,15 +117,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public void onPageSelected(int position) {
-              /*  switch (position){
-                    case 0: getSupportActionBar().setTitle("Notifications");
-                    break;
-                    case 1: getSupportActionBar().setTitle("Services");
-                    break;
-                    case 2: getSupportActionBar().setTitle("Data Sets");
-                    break;
-                    case 3: getSupportActionBar().setTitle("Feedback");
-                }*/
                 bottomNavigation.setCurrentItem(position);
                 String count;
                 count = notificationUpdate.getNewNotification() == 0 ? "" : 1 + "";
@@ -179,6 +172,13 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         });
     }
 
+    public void goToNextPage() {
+        if( currentItem != 0) {
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+        }
+
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -202,41 +202,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home_menu, menu);
-        /*searchMenu = menu.findItem(R.id.search);
-        searchMenu.setVisible(false);*/
-
-        /*SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-
-        searchView.setIconified(false);*/
-/*        searchView.setOnCloseListener(() -> {
-            searchView.clearFocus();
-            if (menuItem != null) {
-                menuItem.collapseActionView();
-            }
-            return true;
-        });*/
-        /*searchView.setOnSearchClickListener(view -> {
-            setItemsVisibility(menu, searchMenu, false);
-        });*/
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                mSearch.OnSearchNotification(query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                mSearch.OnSearchNotification(query);
-                return true;
-            }
-        });*/
         return true;
     }
 

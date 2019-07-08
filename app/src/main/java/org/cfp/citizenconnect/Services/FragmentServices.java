@@ -1,18 +1,23 @@
 package org.cfp.citizenconnect.Services;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import org.cfp.citizenconnect.Adapters.GridViewAdapter;
+import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
 import org.cfp.citizenconnect.Adapters.Services_GridViewAdapter;
+import org.cfp.citizenconnect.CustomViewPager;
 import org.cfp.citizenconnect.Model.Layout;
 import org.cfp.citizenconnect.Model.Services;
 import org.cfp.citizenconnect.PdfViewerActivity;
@@ -62,6 +67,7 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
             Toast.makeText(FragmentServices.this.getActivity(), "Failed to connect", Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
         });
+
         return rootView;
     }
 
