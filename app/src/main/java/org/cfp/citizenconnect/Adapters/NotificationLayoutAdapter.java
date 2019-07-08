@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -25,9 +30,8 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
     private final int VIEW_PROG = 0;
 
     public NotificationLayoutAdapter(Context mContext, List<Notifications> snapList, OnItemInteractionListener mListener) {
-        this.notificationList = snapList;
         this.mContext = mContext;
-        //inflater = LayoutInflater.from(mContext);
+        this.notificationList = snapList;
         NotificationLayoutAdapter.mListener = mListener;
     }
 

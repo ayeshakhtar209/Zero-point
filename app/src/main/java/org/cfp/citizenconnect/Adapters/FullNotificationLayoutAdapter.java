@@ -15,6 +15,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.R;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNotificationLayoutAdapter.MyViewHolder> {
@@ -59,7 +63,7 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
         holder.description.setText(notificationList.get(position).getDescription());
         holder.DateTime.setText(notificationList.get(position).getDate());
 
-//        holder.BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(position, holder.snapHolder.getDrawable()));
+//        holder.BtnShare.setOnClickListener(view -> mListener.ShareImageClick`Listener(position, holder.snapHolder.getDrawable()));
 //        holder.view.setOnClickListener(view -> mListener.FullSizeImageClickListener(position,notificationList.get(position).getFilePath(), holder.description.getText().toString()));
 /*        holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +73,6 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
         });*/
         holder.descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(position, notificationList.get(position).getFilePath(), holder.description.getText().toString()));
         holder.snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(position, notificationList.get(position).getFilePath(), holder.description.getText().toString()));
-
     }
 
     @Override

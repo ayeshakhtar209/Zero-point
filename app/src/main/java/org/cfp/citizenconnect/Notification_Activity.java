@@ -204,7 +204,7 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
 
     public void OnSearchNotification(String query) {
         notificationsModel.clear();
-        RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll();
+        RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).findAll(); //&& realm.where(Notifications.class).contains("tag", query, Case.INSENSITIVE).findAll();
         for (Notifications _Notifications : realmResults) {
             notificationsModel.add(_Notifications);
         }
@@ -216,7 +216,7 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
     }
 
     public void updateRecyclerView() {
-        binding.swipeRefreshLayout.setRefreshing(false);
+        binding.swipeRefreshLayout.setRefreshing(true);
         LinearLayoutManager fullnotificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel,this);
         binding.notificationList.setLayoutManager(fullnotificationList);

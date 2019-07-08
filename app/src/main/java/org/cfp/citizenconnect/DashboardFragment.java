@@ -201,15 +201,4 @@ public class DashboardFragment extends Fragment implements NotificationLayoutAda
 
     }
 
-/*    @Override
-    public void onResume() {
-        super.onResume();
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        ((MainActivity)getActivity()).getSupportActionBar().show();
-    }*/
-
 }
