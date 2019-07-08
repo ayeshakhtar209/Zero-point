@@ -122,6 +122,8 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
         });
 
         View view = binding.getRoot();
+
+        mSearch = this;
     }
 
     @Override
