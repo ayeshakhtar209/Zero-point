@@ -2,7 +2,6 @@ package org.cfp.citizenconnect;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
-import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -31,11 +29,14 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import org.cfp.citizenconnect.Adapters.MyPagerAdapter;
+import org.cfp.citizenconnect.Data.FragmentDataSet;
+import org.cfp.citizenconnect.Feedback.FragmentFeedback;
 import org.cfp.citizenconnect.Interfaces.ScrollStatus;
 import org.cfp.citizenconnect.Interfaces.Search;
 import org.cfp.citizenconnect.Model.MessageEvent;
 import org.cfp.citizenconnect.Model.NotificationUpdate;
 import org.cfp.citizenconnect.Popups.EmergencyContactFragment;
+import org.cfp.citizenconnect.Services.FragmentServices;
 import org.cfp.citizenconnect.databinding.ActivityMainBinding;
 import org.greenrobot.eventbus.EventBus;
 
@@ -53,18 +54,17 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     ConstraintLayout mLayout;
     AHBottomNavigation bottomNavigation;
     MyPagerAdapter mPageAdapter;
-
-    public ViewPager getmViewPager() {
-        return mViewPager;
-    }
-
-    ViewPager mViewPager;
+    CustomViewPager mViewPager;
     int currentItem;
     MenuItem menuItem;
     NotificationUpdate notificationUpdate;
     SearchView searchView;
     MenuItem searchMenu;
     private BroadcastReceiver mNotificationReceiver;
+
+    public ViewPager getmViewPager() {
+        return mViewPager;
+    }
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
         mPageAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPageAdapter);
+        mViewPager.disableScroll(true);
 
         currentItem = bottomNavigation.getCurrentItem();
 
@@ -117,16 +118,19 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public void onPageSelected(int position) {
+
                 bottomNavigation.setCurrentItem(position);
                 String count;
                 count = notificationUpdate.getNewNotification() == 0 ? "" : 1 + "";
 
                 if (bottomNavigation.getCurrentItem() == 0) {
                     bottomNavigation.setVisibility(View.GONE);
+                    mViewPager.disableScroll(true);
 //                    bottomNavigation.hideBottomNavigation();
 //                    bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
                 } else {
                     bottomNavigation.setVisibility(View.VISIBLE);
+                    mViewPager.disableScroll(false);
                 }
 
                 if (position == 0) {
@@ -173,10 +177,9 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     }
 
     public void goToNextPage() {
-        if( currentItem != 0) {
+        if (currentItem != 0) {
             mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
         }
-
     }
 
     @Override

@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingTop="0dp">
+            android:paddingTop="2.5dp"
+            android:paddingBottom="2.5dp">
 
             <RelativeLayout
                 android:id="@+id/background"
@@ -34,19 +35,17 @@
                     android:visibility="gone"
                     fresco:actualImageScaleType="centerInside" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/titleAlphabet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/circle_shape"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="D"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
@@ -56,8 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:ellipsize="none"
-                android:paddingLeft="20dp"
-                android:paddingTop="25dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
                 android:text="Drugs Store"
                 android:textAlignment="center"
                 android:textColor="@color/black"
