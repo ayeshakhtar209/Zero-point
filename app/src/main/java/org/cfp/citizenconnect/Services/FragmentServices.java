@@ -38,7 +38,7 @@ import static org.cfp.citizenconnect.Model.Services.isObjectExist;
  * Created by shahzaibshahid on 22/01/2018.
  */
 
-public class FragmentServices extends Fragment implements GridViewAdapter.OnItemClickListener {
+public class FragmentServices extends Fragment implements Services_GridViewAdapter.OnItemClickListener {
 
     GridView mGridView;
     Services_GridViewAdapter gridViewAdapter;
@@ -60,7 +60,7 @@ public class FragmentServices extends Fragment implements GridViewAdapter.OnItem
         mGridView = rootView.findViewById(R.id.service_GridView);
         mList = new ArrayList<>();
         getLayout("SERVICES", database.getReference(SERVICES_REFFERENCE), response -> {
-            gridViewAdapter = new Services_GridViewAdapter(getActivity(), response, this);
+            gridViewAdapter = new Services_GridViewAdapter(getActivity(), response);
             mGridView.setAdapter(gridViewAdapter);
             progressDialog.dismiss();
         }, error -> {

@@ -116,7 +116,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
     }
 
     @Override
@@ -195,7 +194,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
                 updateQuery(query);
                 return true;
             }
-
         });
         return true;
     }
@@ -215,7 +213,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
                 plotMarkers(true);
             }
         }
-
     }
 
     @Override

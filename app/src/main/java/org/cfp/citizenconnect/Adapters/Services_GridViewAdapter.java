@@ -28,7 +28,7 @@ public class Services_GridViewAdapter extends BaseAdapter {
     List<Layout> gridViewList;
     GridViewAdapter.OnItemClickListener mListener;
 
-    public Services_GridViewAdapter(Context mContext, List<Layout> gridViewList, GridViewAdapter.OnItemClickListener mListener) {
+    public Services_GridViewAdapter(Context mContext, List<Layout> gridViewList) {
         this.mContext = mContext;
         this.gridViewList = gridViewList;
         this.mListener = mListener;
@@ -58,13 +58,13 @@ public class Services_GridViewAdapter extends BaseAdapter {
         SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
         TextView title = view.findViewById(R.id.titleGV);
         ImageView titleAlphabet = view.findViewById(R.id.titleAlphabet);
-        CardView mCardView = view.findViewById(R.id.mainCV);
+        CardView sCardView = view.findViewById(R.id.service_mainCV);
         LinearLayout background = view.findViewById(R.id.background);
         final Layout layout = (Layout) this.getItem(i);
         icons.setImageURI(Uri.parse(layout.getIcon()));
         //background.setBackgroundColor(Color.parseColor(layout.getColor()));
         title.setText(layout.getName());
-        mCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
+        sCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
 
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_shape);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
@@ -75,17 +75,17 @@ public class Services_GridViewAdapter extends BaseAdapter {
             case "Domicile Certificate":
                 titleAlphabet.setImageResource(R.drawable.domicile_reg);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#059c1b"));
                 break;
             case "Marriage Registration Certificate":
                 titleAlphabet.setImageResource(R.drawable.marriage_reg);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fff34c"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fcba03"));
                 break;
             case "International Driving Permit":
                 titleAlphabet.setImageResource(R.drawable.idp);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#33b81c"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#059c1b"));
                 break;
         }
         return view;

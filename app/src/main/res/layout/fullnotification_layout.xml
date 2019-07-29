@@ -3,46 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:paddingStart="5dp"
     android:paddingTop="0dp"
     android:paddingEnd="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:background="@color/whitePrimary">
 
     <android.support.v7.widget.CardView
         android:id="@+id/fullnotificationCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="3dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="6">
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/full_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:paddingLeft="12dp"
+                android:paddingTop="5dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="5dp"
+                android:text="title"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/fullnotificationLayoutHolder"
                 android:layout_width="match_parent"
-                android:layout_height="101dp"
-                android:layout_weight="2"
+                android:layout_height="150dp"
+                android:layout_weight="6"
                 android:adjustViewBounds="true"
-                app:roundBottomRight="false"
-                app:roundingBorderColor="#000"
-                app:roundingBorderWidth="20dp"
-                fresco:actualImageScaleType="centerCrop" />
+                app:roundingBorderColor="#fff"
+                app:roundingBorderWidth="1dp"
+                fresco:actualImageScaleType="centerCrop"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                fresco:roundedCornerRadius="10dp" />
 
             <LinearLayout
                 android:id="@+id/fulldescriptionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/full_description"
+                    android:id="@+id/full_description_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
@@ -52,12 +74,12 @@
                     android:paddingRight="12dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:singleLine="true"
-                    android:text="title"
+                    android:text="@string/DESCRIPTION"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:layout_weight="2"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:fontFamily="sans-serif-light"/>
 
                 <TextView
                     android:id="@+id/full_DateTime"
@@ -71,7 +93,8 @@
                     android:text="Date"
                     android:textColor="@color/darkGrey"
                     android:textSize="10sp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-light"/>
 
             </LinearLayout>
         </LinearLayout>
