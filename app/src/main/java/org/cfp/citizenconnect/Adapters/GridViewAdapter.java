@@ -1,6 +1,7 @@
 package org.cfp.citizenconnect.Adapters;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -67,91 +68,113 @@ public class GridViewAdapter extends BaseAdapter {
         titleAlphabet.setText(layout.getName().substring(0,1));
         mCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_notification_count);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_img);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
 
         switch (layout.getName().substring(0, 1)) {
             case "A":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#6640b8"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "B":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#335ca3"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "C":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
-                DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.CLEAR);
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#731832"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "D":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#731818"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "E":
-                DrawableCompat.setTint(wrappedDrawable, Color.RED);
-                DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.SRC_OVER);
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "F":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "G":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#76de56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "H":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#266347"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "I":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#296326"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "J":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#b8b800"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "K":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#b86200"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "L":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("##fcba03"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "M":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fcba03"));
-                DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.SRC_OVER);
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "N":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#059c1b"));
-                DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.SRC_OVER);
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "O":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#76de56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "P":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#76de56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "Q":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#76de56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "R":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#872504"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "S":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#e5e360"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "T":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#116017"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "U":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#ebb3ef"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "V":
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#DE5E56"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#76de56"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "W":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "X":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#50683d"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "Y":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#e05131"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "Z":
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#ffe41c"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             default:
                 break;

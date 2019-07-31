@@ -230,7 +230,7 @@ public class FragmentNotification extends Fragment implements NotificationLayout
     }*/
 
     public void updateRecyclerView() {
-        binding.swipeRefreshLayout.setRefreshing(false);
+        binding.swipeRefreshLayout.setRefreshing(true);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel, FragmentNotification.this);
         binding.notificationList.setLayoutManager(notificationList);

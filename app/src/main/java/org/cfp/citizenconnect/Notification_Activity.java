@@ -205,8 +205,6 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
     public void OnSearchNotification(String query) {
         notificationsModel.clear();
 
-        String[] check = {"description", "tag"};
-
         RealmResults<Notifications> realmResults = realm.where(Notifications.class).contains("description", query, Case.INSENSITIVE).or().contains("tag", query, Case.INSENSITIVE).findAll();
         for (Notifications _Notifications : realmResults) {
             notificationsModel.add(_Notifications);

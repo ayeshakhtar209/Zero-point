@@ -22,10 +22,6 @@ import static org.cfp.citizenconnect.Constants.DATASET_REFFERENCE;
 import static org.cfp.citizenconnect.Constants.DATA_TYPE;
 import static org.cfp.citizenconnect.Model.Layout.getLayout;
 
-/**
- * Created by shahzaibshahid on 18/01/2018.
- */
-
 public class FragmentDataSet extends Fragment implements GridViewAdapter.OnItemClickListener {
 
     GridView mGridView;

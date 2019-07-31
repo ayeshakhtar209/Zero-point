@@ -10,16 +10,4 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="collapseActionView|always"
         android:visible="true"/>
-    <item
-        android:id="@+id/emergency"
-        android:iconTint="@color/black"
-        android:icon="@drawable/ic_local_phone_black_24dp"
-        android:title="Emergency number"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/aboutUS"
-        android:iconTint="@color/black"
-        android:icon="@drawable/ic_info_black_24dp"
-        android:title="About Us"
-        app:showAsAction="always" />
 </menu>

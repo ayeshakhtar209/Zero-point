@@ -2,6 +2,7 @@ package org.cfp.citizenconnect.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -66,8 +67,9 @@ public class Services_GridViewAdapter extends BaseAdapter {
         title.setText(layout.getName());
         sCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_shape);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_img);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
         layoutParams.setMargins(10,10,10,10);
 
@@ -75,17 +77,24 @@ public class Services_GridViewAdapter extends BaseAdapter {
             case "Domicile Certificate":
                 titleAlphabet.setImageResource(R.drawable.domicile_reg);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#059c1b"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#64c5fa"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "Marriage Registration Certificate":
                 titleAlphabet.setImageResource(R.drawable.marriage_reg);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fcba03"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fc5d53"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "International Driving Permit":
                 titleAlphabet.setImageResource(R.drawable.idp);
                 titleAlphabet.setLayoutParams(layoutParams);
-                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#059c1b"));
+                DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4cfc65"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
+
+
+                /*DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));
+                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);*/
                 break;
         }
         return view;
