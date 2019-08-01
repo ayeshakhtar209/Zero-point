@@ -41,12 +41,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="0dp"
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
                     android:background="@drawable/circle_img"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:scaleType="fitCenter"/>
 
             </RelativeLayout>
 

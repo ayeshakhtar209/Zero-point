@@ -9,12 +9,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -37,6 +39,7 @@ import org.cfp.citizenconnect.Model.Notifications;
 import org.cfp.citizenconnect.Notification.FullNewsViewFragment;
 import org.cfp.citizenconnect.databinding.NotificationFragmentBinding;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -47,6 +50,7 @@ import io.realm.RealmResults;
 import static org.cfp.citizenconnect.CitizenConnectApplication.FilesRef;
 import static org.cfp.citizenconnect.CitizenConnectApplication.realm;
 import static org.cfp.citizenconnect.Model.Notifications.fetchFirebaseNotifications;
+import static org.cfp.citizenconnect.MyUtils.getBitmapUri;
 
 public class Notification_Activity extends AppCompatActivity implements ScrollStatus, FullNotificationLayoutAdapter.OnItemInteractionListener, Search {
 
@@ -270,7 +274,26 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
     }
 
     @Override
-    public void ShareImageClickListener(int position, Drawable image) { }
+    public void ShareImageClickListener(int position, Drawable image) {
+        try {
+            if (notificationsModel.get(position).getFilePath() != null &&!TextUtils.isEmpty(notificationsModel.get(position).getFilePath())) {
+
+                Uri bmpUri = getBitmapUri(Uri.parse(notificationsModel.get(position).getFilePath()), this);
+                if (bmpUri != null) {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playStoreUrl));
+                    shareIntent.setType("*/*");
+                    startActivity(Intent.createChooser(shareIntent, "Share Image"));
+                }
+            } else {
+                Toast.makeText(this, "Failed to Share. Please try again", Toast.LENGTH_LONG).show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void FullSizeImageClickListener(int position, String imagePath, String description) {

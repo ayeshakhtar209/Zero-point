@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,7 +26,6 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
     private List<Notifications> notificationList;
     private Context mContext;
     private static OnItemInteractionListener mListener;
-    private LayoutInflater inflater;
 
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
@@ -62,15 +62,7 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
         holder.snapHolder.setImageURI(Uri.parse(notificationList.get(position).getFilePath()));
         holder.description.setText(notificationList.get(position).getDescription());
         holder.DateTime.setText(notificationList.get(position).getDate());
-
-//        holder.BtnShare.setOnClickListener(view -> mListener.ShareImageClick`Listener(position, holder.snapHolder.getDrawable()));
-//        holder.view.setOnClickListener(view -> mListener.FullSizeImageClickListener(position,notificationList.get(position).getFilePath(), holder.description.getText().toString()));
-/*        holder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mListener.FullSizeImageClickListener(position, notificationList.get(position).getFilePath(), holder.description.getText().toString());
-            }
-        });*/
+        holder.BtnShare.setOnClickListener(view -> mListener.ShareImageClickListener(position, holder.snapHolder.getDrawable()));
         holder.descriptionLayout.setOnClickListener(view -> mListener.FullSizeImageClickListener(position, notificationList.get(position).getFilePath(), holder.description.getText().toString()));
         holder.snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(position, notificationList.get(position).getFilePath(), holder.description.getText().toString()));
     }
@@ -94,7 +86,7 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         SimpleDraweeView snapHolder;
-        //TextView BtnShare;
+        ImageView BtnShare;
         TextView description;
         TextView DateTime;
         LinearLayout descriptionLayout;
@@ -107,16 +99,16 @@ public class FullNotificationLayoutAdapter extends RecyclerView.Adapter<FullNoti
             DateTime = itemView.findViewById(R.id.full_DateTime);
             descriptionLayout = itemView.findViewById(R.id.fulldescriptionLayout);
             view = itemView.findViewById(R.id.notificationCardView);
-            //BtnShare = itemView.findViewById(R.id.BtnShare);
-
-            /*BtnShare.setOnClickListener((View view) -> {
-                mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable());
-            }); */
-
+            BtnShare = itemView.findViewById(R.id.BtnShare);
         }
     }
 
-/*    public interface OnItemInteractionListener {
+
+    /*BtnShare.setOnClickListener((View view) -> {
+         mListener.ShareImageClickListener(getAdapterPosition(), snapHolder.getDrawable());
+     });
+
+   public interface OnItemInteractionListener {
         void ShareImageClickListener(int position, Drawable image);
         void FullSizeImageClickListener(String imagePath, String description);
         snapHolder.setOnClickListener(view -> mListener.FullSizeImageClickListener(notificationList.get(getAdapterPosition()).getFilePath(), description.getText().toString()));

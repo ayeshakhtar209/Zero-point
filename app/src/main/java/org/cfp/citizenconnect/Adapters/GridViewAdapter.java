@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -66,8 +67,16 @@ public class GridViewAdapter extends BaseAdapter {
         icons.setImageURI(Uri.parse(layout.getIcon()));
         title.setText(layout.getName());
         titleAlphabet.setText(layout.getName().substring(0,1));
-        mCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
+//        mCardView.setOnClickListener(view1 ->
+  //              mListener.viewDataList(title.getText().toString()));
 
+        mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext,"trial",Toast.LENGTH_LONG).show();
+                mListener.viewDataList(title.getText().toString());
+            }
+        });
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_img);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
 

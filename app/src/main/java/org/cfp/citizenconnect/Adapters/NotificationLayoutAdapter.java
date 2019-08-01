@@ -36,7 +36,7 @@ public class NotificationLayoutAdapter extends RecyclerView.Adapter<Notification
     }
 
     public NotificationLayoutAdapter(Context mContext, List<Notifications> snapList) {
-        this.notificationList = snapList;
+        this.notificationList = snapList.subList(0,5);
         this.mContext = mContext;
     }
 

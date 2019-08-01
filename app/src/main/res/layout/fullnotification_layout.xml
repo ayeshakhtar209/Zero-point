@@ -43,18 +43,36 @@
                 android:textSize="14sp"
                 android:layout_marginStart="8dp"/>
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/fullnotificationLayoutHolder"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_weight="6"
-                android:adjustViewBounds="true"
-                app:roundingBorderColor="#fff"
-                app:roundingBorderWidth="1dp"
-                fresco:actualImageScaleType="centerCrop"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                fresco:roundedCornerRadius="10dp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/fullnotificationLayoutHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:adjustViewBounds="true"
+                        app:roundingBorderColor="#fff"
+                        app:roundingBorderWidth="1dp"
+                        fresco:actualImageScaleType="centerCrop"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        fresco:roundedCornerRadius="10dp" />
+
+                <ImageView
+                    android:id="@+id/BtnShare"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@id/fullnotificationLayoutHolder"
+                    android:layout_alignBottom="@id/fullnotificationLayoutHolder"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/circle_share"
+                    android:backgroundTint="@color/backgroundGrey"
+                    android:foreground="@drawable/ic_share_black_24dp"
+                    android:foregroundGravity="center" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/fulldescriptionLayout"

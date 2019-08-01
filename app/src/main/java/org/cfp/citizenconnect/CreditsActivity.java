@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class CreditsActivity extends AppCompatActivity {
-    Button asim, hamid,kiran,yusra,wahib,ayesha1,ayesha2,gulzaib,talha;
+    Button asim, hamid,kiran,yusra,wahib,ayesha1,ayesha2,gulzaib,shahzaib, ahmed, talha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class CreditsActivity extends AppCompatActivity {
         ayesha1 = findViewById(R.id.ayesha1);
         ayesha2 = findViewById(R.id.ayesha2);
         gulzaib = findViewById(R.id.gulzaib);
+        shahzaib = findViewById(R.id.shahzaib);
+        ahmed = findViewById(R.id.ahmed);
         talha = findViewById(R.id.talha);
 
         asim.setText("\u2022 Asim Ghaffar");
@@ -36,6 +38,8 @@ public class CreditsActivity extends AppCompatActivity {
         ayesha1.setText("\u2022 Ayesha Akhtar");
         ayesha2.setText("\u2022 Ayesha Mehmood");
         gulzaib.setText("\u2022 Gul Zaib");
+        shahzaib.setText("\u2022 Shahzaib Shahid");
+        ahmed.setText("\u2022 Ahmed Abbas Zaidi");
         talha.setText("\u2022 Talha Khan");
 
     }
@@ -79,6 +83,14 @@ public class CreditsActivity extends AppCompatActivity {
     }
     public void gulzaibProfile(View view){
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gulZaib)));
+        startActivity(browserIntent);
+    }
+    public void shahzaibProfile(View view){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.shahZaib)));
+        startActivity(browserIntent);
+    }
+    public void ahmedProfile(View view){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ahmed)));
         startActivity(browserIntent);
     }
     public void talhaProfile(View view){

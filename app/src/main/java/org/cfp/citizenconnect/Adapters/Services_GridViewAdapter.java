@@ -75,19 +75,19 @@ public class Services_GridViewAdapter extends BaseAdapter {
 
         switch (layout.getName()) {
             case "Domicile Certificate":
-                titleAlphabet.setImageResource(R.drawable.domicile_reg);
+                titleAlphabet.setImageResource(R.drawable.ic_domicile);
                 titleAlphabet.setLayoutParams(layoutParams);
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#64c5fa"));
                 titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "Marriage Registration Certificate":
-                titleAlphabet.setImageResource(R.drawable.marriage_reg);
+                titleAlphabet.setImageResource(R.drawable.ic_marriage_reg);
                 titleAlphabet.setLayoutParams(layoutParams);
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#fc5d53"));
                 titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
                 break;
             case "International Driving Permit":
-                titleAlphabet.setImageResource(R.drawable.idp);
+                titleAlphabet.setImageResource(R.drawable.ic_drivers_license);
                 titleAlphabet.setLayoutParams(layoutParams);
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4cfc65"));
                 titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
