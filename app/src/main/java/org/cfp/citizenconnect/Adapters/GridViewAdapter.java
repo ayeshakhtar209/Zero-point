@@ -71,8 +71,6 @@ public class GridViewAdapter extends BaseAdapter {
         icons.setImageURI(Uri.parse(layout.getIcon()));
         title.setText(layout.getName());
         titleAlphabet.setText(layout.getName().substring(0,1));
-//        mCardView.setOnClickListener(view1 ->
-  //              mListener.viewDataList(title.getText().toString()));
 
         mCardView.setOnClickListener(new View.OnClickListener() {
             @Override

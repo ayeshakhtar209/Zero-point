@@ -10,7 +10,7 @@
         android:gravity="center"
         android:background="@color/white"
         android:padding="12dp"
-        android:verticalSpacing="8dp"
+        android:verticalSpacing="2dp"
         android:horizontalSpacing="12dp"
         android:columnWidth="130dp"
         android:layout_width="match_parent"

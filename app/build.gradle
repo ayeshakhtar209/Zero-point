@@ -96,6 +96,7 @@ dependencies {
     implementation 'com.google.maps.android:android-maps-utils:0.5+'
     implementation 'com.twitter.sdk.android:twitter:3.3.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //implementation 'org.twitter4j:twitter4j-core:4.0.7'
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'realm-android'
