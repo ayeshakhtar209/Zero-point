@@ -37,6 +37,10 @@ public class GridViewAdapter extends BaseAdapter {
         this.mListener = mListener;
     }
 
+    public interface OnItemClickListener {
+        void viewDataList(String type);
+    }
+
     @Override
     public int getCount() {
         return gridViewList.size();
@@ -73,7 +77,6 @@ public class GridViewAdapter extends BaseAdapter {
         mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext,"trial",Toast.LENGTH_LONG).show();
                 mListener.viewDataList(title.getText().toString());
             }
         });
@@ -189,9 +192,5 @@ public class GridViewAdapter extends BaseAdapter {
                 break;
         }
         return view;
-    }
-
-    public interface OnItemClickListener {
-        void viewDataList(String type);
     }
 }

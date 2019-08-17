@@ -27,9 +27,9 @@ import java.util.List;
 public class Services_GridViewAdapter extends BaseAdapter {
     Context mContext;
     List<Layout> gridViewList;
-    GridViewAdapter.OnItemClickListener mListener;
+    OnItemClickListener mListener;
 
-    public Services_GridViewAdapter(Context mContext, List<Layout> gridViewList) {
+    public Services_GridViewAdapter(Context mContext, List<Layout> gridViewList, OnItemClickListener mListener) {
         this.mContext = mContext;
         this.gridViewList = gridViewList;
         this.mListener = mListener;
@@ -60,12 +60,13 @@ public class Services_GridViewAdapter extends BaseAdapter {
         TextView title = view.findViewById(R.id.titleGV);
         ImageView titleAlphabet = view.findViewById(R.id.titleAlphabet);
         CardView sCardView = view.findViewById(R.id.service_mainCV);
-        LinearLayout background = view.findViewById(R.id.background);
+
+        RelativeLayout background = view.findViewById(R.id.background);
+
         final Layout layout = (Layout) this.getItem(i);
         icons.setImageURI(Uri.parse(layout.getIcon()));
-        //background.setBackgroundColor(Color.parseColor(layout.getColor()));
         title.setText(layout.getName());
-        sCardView.setOnClickListener(view1 -> mListener.viewDataList(title.getText().toString()));
+        sCardView.setOnClickListener(view1 -> mListener.viewService(title.getText().toString()));
 
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.circle_img);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
@@ -91,16 +92,12 @@ public class Services_GridViewAdapter extends BaseAdapter {
                 titleAlphabet.setLayoutParams(layoutParams);
                 DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4cfc65"));
                 titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);
-
-
-                /*DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#4f7d96"));
-                titleAlphabet.setBackgroundTintMode(PorterDuff.Mode.SRC_ATOP);*/
                 break;
         }
         return view;
     }
 
     public interface OnItemClickListener {
-        void viewDataList(String type);
+        void viewService(String type);
     }
 }

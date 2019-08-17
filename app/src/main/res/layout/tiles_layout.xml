@@ -14,7 +14,8 @@
         android:layout_gravity="center"
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:onClick="viewDataList">
 
         <LinearLayout
             android:layout_width="match_parent"

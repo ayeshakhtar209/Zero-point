@@ -50,7 +50,6 @@ public class DataSetAdapter extends RecyclerView.Adapter<DataSetAdapter.ViewHold
         return list.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, address;

@@ -94,9 +94,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation 'com.github.claudiodegio:MsvSearch:1.0.0'
     implementation 'com.google.maps.android:android-maps-utils:0.5+'
-    //implementation 'org.twitter4j:twitter4j-core:4.0.7'
     implementation 'com.twitter.sdk.android:twitter:3.3.0'
-    implementation project(':folding-cell-1.2.3')
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -70,7 +70,6 @@ public class PdfViewerActivity extends AppCompatActivity {
             Toast.makeText(PdfViewerActivity.this, "Failed to load data", Toast.LENGTH_LONG).show();
             finish();
         }
-
     }
 
     @Override

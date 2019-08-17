@@ -22,7 +22,6 @@
             android:textStyle="bold"
             android:textSize="16sp" />
 
-
     </LinearLayout>
 
     <LinearLayout
@@ -131,11 +130,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal"
-        android:text="cancel"
+        android:text="Cancel"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:background="@color/grey_85"/>
+        android:textAllCaps="false"
+        android:background="@drawable/button_round_corner"
+        android:backgroundTint="@color/grey_85" />
+
 </LinearLayout>

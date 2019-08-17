@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 public class CustomViewPager extends ViewPager {
-    private Boolean disable = false;
+    private Boolean disable = true;
 
     public CustomViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.disable=false;
+        this.disable = false;
     }
 
-    @Override
+/*    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
 
         if(this.disable)
@@ -29,7 +29,7 @@ public class CustomViewPager extends ViewPager {
         return false;
 
         return super.onTouchEvent(event);
-    }
+    }*/
 
     public void disableScroll(Boolean disable) {
         //When disable = true not work the scroll and when disable = false work the scroll
