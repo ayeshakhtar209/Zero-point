@@ -60,8 +60,8 @@
     <string name="complain_dialog_title">Suggestion</string>
     <string name="complain_dialog_subTitile">Please Enter Your Suggestion</string>
 
-    <string name="tos">Terms and Conditions</string>
-    <string name="credits">Credits</string>
+    <string name="tos"><u>Terms and Conditions</u></string>
+    <string name="credits"><u>Credits</u></string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBAphEJDxieF1uh9IgYJ5l9WP3xqH3YxPE</string>
 

@@ -56,7 +56,7 @@ public class Services_GridViewAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.services_tiles_layout, viewGroup, false);
         }
-        SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
+        //SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
         TextView title = view.findViewById(R.id.titleGV);
         ImageView titleAlphabet = view.findViewById(R.id.titleAlphabet);
         CardView sCardView = view.findViewById(R.id.service_mainCV);
@@ -64,7 +64,7 @@ public class Services_GridViewAdapter extends BaseAdapter {
         RelativeLayout background = view.findViewById(R.id.background);
 
         final Layout layout = (Layout) this.getItem(i);
-        icons.setImageURI(Uri.parse(layout.getIcon()));
+        //icons.setImageURI(Uri.parse(layout.getIcon()));
         title.setText(layout.getName());
         sCardView.setOnClickListener(view1 -> mListener.viewService(title.getText().toString()));
 

@@ -126,8 +126,7 @@ public class DashboardFragment extends Fragment implements NotificationLayoutAda
                 Intent i = new Intent(getActivity(), TwitterActivity.class);
                 startActivity(i);
             }
-        }); // layout done
-
+        });
 
         tweetRView = view.findViewById(R.id.twitter_FeedList);
         LinearLayoutManager tweetList = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
@@ -166,6 +165,7 @@ public class DashboardFragment extends Fragment implements NotificationLayoutAda
     }
 
     private void loadFromFirebase() {
+        //binding.swipeRefreshLayout.setRefreshing(false);
         notificationsModel.clear();
         fetchFirebaseNotifications(FilesRef, (List<Notifications> response) -> {
             notificationsModel = response;
@@ -178,7 +178,7 @@ public class DashboardFragment extends Fragment implements NotificationLayoutAda
     }
 
     public void updateRecyclerView() {
-       // binding.swipeRefreshLayout.setRefreshing(false);
+        //binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager notificationList = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         notificationListAdapter = new NotificationLayoutAdapter(getActivity(), notificationsModel,this);
         notifPanel.setLayoutManager(notificationList);

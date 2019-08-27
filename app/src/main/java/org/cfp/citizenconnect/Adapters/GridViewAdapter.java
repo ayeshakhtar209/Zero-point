@@ -62,13 +62,13 @@ public class GridViewAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.tiles_layout, viewGroup, false);
         }
-        SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
+        //SimpleDraweeView icons = view.findViewById(R.id.iconHolder);
         TextView title = view.findViewById(R.id.titleGV);
         TextView titleAlphabet = view.findViewById(R.id.titleAlphabet);
         CardView mCardView = view.findViewById(R.id.mainCV);
         LinearLayout background = view.findViewById(R.id.background);
         final Layout layout = (Layout) this.getItem(i);
-        icons.setImageURI(Uri.parse(layout.getIcon()));
+        //icons.setImageURI(Uri.parse(layout.getIcon()));
         title.setText(layout.getName());
         titleAlphabet.setText(layout.getName().substring(0,1));
 

@@ -221,7 +221,7 @@ public class Notification_Activity extends AppCompatActivity implements ScrollSt
     }
 
     public void updateRecyclerView() {
-        binding.swipeRefreshLayout.setRefreshing(true);
+        binding.swipeRefreshLayout.setRefreshing(false);
         LinearLayoutManager fullnotificationList = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         fullnotificationListAdapter = new FullNotificationLayoutAdapter(this, notificationsModel,this);
         binding.notificationList.setLayoutManager(fullnotificationList);

@@ -4,7 +4,8 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    >
 
     <android.support.v7.widget.CardView
         android:id="@+id/service_mainCV"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:cardCornerRadius="8dp"
-        app:cardElevation="2dp"
+        app:cardElevation="1dp"
         app:cardUseCompatPadding="true"
         android:onClick="viewServices">
 
@@ -28,13 +29,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="5dp">
-
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/iconHolder"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    fresco:actualImageScaleType="centerInside" />
 
                 <ImageView
                     android:id="@+id/titleAlphabet"

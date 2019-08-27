@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -54,6 +55,7 @@ import static org.cfp.citizenconnect.Constants.DATA_TYPE;
 import static org.cfp.citizenconnect.Model.DataSet.fetchFromRealm;
 import static org.cfp.citizenconnect.MyUtils.canGetLocation;
 import static org.cfp.citizenconnect.MyUtils.isDeviceOnline;
+import static org.cfp.citizenconnect.R.id.fAb;
 
 /**
  * Created by shahzaibshahid on 23/01/2018.
@@ -68,12 +70,14 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
     String type;
     List<DataSet> list;
     ProgressDialog progressDialog;
-    MenuItem menuItem;
+
     LinearLayoutManager dataListLayout;
     DividerItemDecoration dividerItemDecoration;
     MapView mapView;
-    FloatingActionButton fab;
+
+    MenuItem menuItem;
     MenuItem mapViewMenu;
+    MenuItem fab;
     private GoogleMap mMap;
     private ClusterManager<MyItem> mClusterManager;
     Location mCurrentLocation;
@@ -87,8 +91,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         mapView.setVisibility(View.GONE);
-        fab = findViewById(R.id.fAb);
-        fab.setVisibility(View.GONE);
+
         CONTEXT_DATA = DataSetListActivity.this;
         progressDialog = new ProgressDialog(DataSetListActivity.this);
         progressDialog.setMessage(getString(R.string.in_progress_msg));
@@ -144,7 +147,6 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         super.onResume();
     }
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -168,6 +170,9 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
         mapViewMenu = menu.findItem(R.id.mapView);
+        fab = menu.findItem(R.id.fAb);
+        fab.setVisible(false);
+
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView =
@@ -228,7 +233,7 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
     }
 
     private void switchToMapView() {
-        fab.setVisibility(View.VISIBLE);
+        fab.setVisible(true);
         mapViewMenu.setVisible(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -240,10 +245,11 @@ public class DataSetListActivity extends AppCompatActivity implements DataSetAda
             getLocationUpdates();
         }
     }
-    public   void switchToListView(View view){
+
+    public void switchToListView(MenuItem item) {
         mapView.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
-        fab.setVisibility(View.GONE);
+        fab.setVisible(false);
         mapViewMenu.setVisible(true);
     }
 
