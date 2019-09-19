@@ -13,7 +13,7 @@ public class CustomViewPager extends ViewPager {
         this.disable = false;
     }
 
-/*    @Override
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
 
         if(this.disable)
@@ -29,7 +29,7 @@ public class CustomViewPager extends ViewPager {
         return false;
 
         return super.onTouchEvent(event);
-    }*/
+    }
 
     public void disableScroll(Boolean disable) {
         //When disable = true not work the scroll and when disable = false work the scroll

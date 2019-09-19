@@ -14,14 +14,14 @@
     <android.support.v7.widget.CardView
         android:id="@+id/fullnotificationCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="10">
 
@@ -29,6 +29,7 @@
                 android:id="@+id/full_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
@@ -40,25 +41,24 @@
                 android:paddingBottom="5dp"
                 android:text="title"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginStart="8dp"/>
+                android:textSize="14sp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="6">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/fullnotificationLayoutHolder"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:adjustViewBounds="true"
-                        app:roundingBorderColor="#fff"
-                        app:roundingBorderWidth="1dp"
-                        fresco:actualImageScaleType="centerCrop"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        fresco:roundedCornerRadius="10dp" />
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/fullnotificationLayoutHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="true"
+                    app:roundingBorderColor="#fff"
+                    app:roundingBorderWidth="1dp"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:roundedCornerRadius="10dp" />
 
                 <ImageView
                     android:id="@+id/BtnShare"
@@ -77,7 +77,7 @@
             <LinearLayout
                 android:id="@+id/fulldescriptionLayout"
                 android:layout_width="match_parent"
-                android:layout_height="41dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:orientation="vertical">
 
@@ -85,35 +85,40 @@
                     android:id="@+id/full_description_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:ellipsize="end"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="2"
                     android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="12dp"
                     android:paddingBottom="5dp"
                     android:text="@string/DESCRIPTION"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/full_DateTime"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
-                    android:layout_marginBottom="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-light"
                     android:includeFontPadding="false"
                     android:paddingLeft="12dp"
                     android:paddingTop="5dp"
                     android:paddingRight="12dp"
                     android:text="Date"
                     android:textColor="@color/darkGrey"
-                    android:textSize="10sp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="10sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/grey_55" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

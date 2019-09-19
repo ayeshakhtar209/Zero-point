@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import static org.cfp.citizenconnect.CitizenConnectApplication.mRequestQueue;
 public class DataSetComplainDialog extends BaseFragment {
     EditText complainMsg;
     String name, address, type;
-    ImageButton sendComplain;
+    Button sendComplain;
     ProgressDialog progressDialog;
 
     public DataSetComplainDialog() {

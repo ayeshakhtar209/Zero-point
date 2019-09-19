@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
     AHBottomNavigation bottomNavigation;
     MyPagerAdapter mPageAdapter;
     CustomViewPager mViewPager;
-    int currentItem;
+    int currentItem = 0;
     MenuItem menuItem;
     NotificationUpdate notificationUpdate;
     SearchView searchView;
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
         bottomNavigation = findViewById(R.id.bottom_navigation);
         mViewPager = findViewById(R.id.viewpager);
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.baseline_notifications_white_48dp, R.color.colorPrimary);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.bottom_item1, R.drawable.ic_home_black_24dp, R.color.colorPrimary);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.bottom_item2, R.drawable.ic_service, R.color.colorPrimary);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.bottom_item3, R.drawable.ic_data_list, R.color.colorPrimary);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.bottom_item4, R.drawable.ic_feedback_white_24dp, R.color.colorPrimary);
@@ -113,19 +113,19 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int currentItem, float positionOffset, int positionOffsetPixels) {
             }
 
             @Override
-            public void onPageSelected(int position) {
-
-                bottomNavigation.setCurrentItem(position);
+            public void onPageSelected(int currentItem) {
+                bottomNavigation.setCurrentItem(currentItem);
                 String count;
                 count = notificationUpdate.getNewNotification() == 0 ? "" : 1 + "";
 
                 if (bottomNavigation.getCurrentItem() == 0) {
-                    bottomNavigation.setVisibility(View.GONE);
                     mViewPager.disableScroll(true);
+                    bottomNavigation.setVisibility(View.GONE);
+
 //                    bottomNavigation.hideBottomNavigation();
 //                    bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
                 } else {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                     mViewPager.disableScroll(false);
                 }
 
-                if (position == 0) {
+                if (currentItem == 0) {
                     changeNotificationStatus(count, ContextCompat.getColor(MainActivity.this, R.color.red));
                     /*searchMenu.setVisible(true);*/
                     bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
@@ -148,7 +148,6 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
                 if (menuItem != null) {
                     menuItem.collapseActionView();
                 }
@@ -164,14 +163,14 @@ public class MainActivity extends AppCompatActivity implements ScrollStatus {
                             binding.bottomNavigation.setVisibility(View.GONE);
                             bottomNavigation.hideBottomNavigation(true);
                         } else {
-                            binding.bottomNavigation.setVisibility(View.VISIBLE);
+                            binding.bottomNavigation.setVisibility(View.GONE);
                             bottomNavigation.restoreBottomNavigation(true);
                         }
                     }
                 });
 
-        bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
-            mViewPager.setCurrentItem(position);
+        bottomNavigation.setOnTabSelectedListener((currentItem, wasSelected) -> {
+            mViewPager.setCurrentItem(currentItem);
             return true;
         });
     }

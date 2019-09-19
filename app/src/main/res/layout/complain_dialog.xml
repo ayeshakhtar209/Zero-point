@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="12dp"
-    app:layout_constraintCircleRadius="3dp"
+    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:padding="12dp"
+    app:layout_constraintCircleRadius="3dp">
 
     <TextView
         android:id="@+id/dialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
-        android:textSize="20sp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:text="@string/complain_dialog_title"
         android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +27,10 @@
         android:id="@+id/subTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
-        android:visibility="gone"
+        android:layout_marginEnd="12dp"
         android:text="@string/complain_dialog_subTitile"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialogTitle" />
@@ -41,24 +40,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="12dp"
         android:background="@drawable/border_round_corner"
         android:gravity="top"
-        android:lines="3"
-        android:padding="4dp"
+        android:lines="4"
+        android:padding="10dp"
         android:textColor="@color/black"
+        android:textSize="12sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/subTitle"
+        />
 
 
-    <ImageButton
+    <!--    <ImageButton
         android:id="@+id/sendBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/complainMsg"
         android:layout_marginTop="8dp"
         android:background="@null"
-        android:src="@drawable/send"/>
+        android:src="@drawable/send"/>-->
+
+    <Button
+        android:id="@+id/sendBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/button_round_corner"
+
+        android:backgroundTint="@color/grey_85"
+        android:elevation="0.75dp"
+        android:text="Send"
+
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complainMsg" />
 </android.support.constraint.ConstraintLayout>

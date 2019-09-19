@@ -59,7 +59,7 @@ public class DataSetAdapter extends RecyclerView.Adapter<DataSetAdapter.ViewHold
             super(itemView);
             name = itemView.findViewById(R.id.name);
             address = itemView.findViewById(R.id.address);
-            complainBtn = itemView.findViewById(R.id.complainBtn);
+            complainBtn = itemView.findViewById(R.id.complainBttn);
             complainBtn.setOnClickListener(view -> {
                 mOnComplainListener.setOnComplainInteraction(name.getText().toString(),address.getText().toString());
             });

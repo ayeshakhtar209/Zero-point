@@ -84,7 +84,6 @@ public class DashboardFragment extends Fragment implements NotificationLayoutAda
             @Override
             public void onClick(View view) {
                 ((MainActivity)getActivity()).getmViewPager().setCurrentItem(2);
-
             }
         });
 ///////////////////////////////////

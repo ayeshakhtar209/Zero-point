@@ -1,181 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
-    tools:context=".DashboardFragment"
-    android:background="#fff">
+    tools:context=".DashboardFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="-12dp"
-        android:paddingBottom="0dp">
+    <Button
+        android:id="@+id/servicebttn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#00CBE4"
+        android:contentDescription="Services"
+        android:drawableTop="@drawable/ic_emergency_contacts"
+        android:paddingTop="20dp"
+        android:text="ICT\nServices"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:textStyle=""
 
-        <Button
-            android:id="@+id/servicebttn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#00CBE4"
-            android:paddingTop="20dp"
-            android:drawableTop="@drawable/ic_emergency_contacts"
-            android:contentDescription="Services"
-            android:text="ICT Services"
-            android:textSize="15sp"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textStyle="" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintDimensionRatio="5:5.05"
+        app:layout_constraintEnd_toStartOf="@+id/databttn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/databttn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#FFC107"
-            android:drawableTop="@drawable/ic_data"
-            android:paddingTop="20dp"
-            android:text="Islamabad\nData"
-            android:textSize="15sp"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textStyle="" />
+    <Button
+        android:id="@+id/databttn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#FFC107"
+        android:drawableTop="@drawable/ic_data"
+        android:paddingTop="20dp"
+        android:text="Islamabad\nData"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:textStyle=""
 
-        <Button
-            android:drawableTop="@drawable/ic_services"
-            android:id="@+id/contactsbttn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#F44336"
-            android:paddingTop="20dp"
-            android:text="Feedback"
-            android:textSize="15sp"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textStyle="" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintDimensionRatio="5:5.05"
+        app:layout_constraintEnd_toStartOf="@+id/contactsbttn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/servicebttn"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/contactsbttn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#F44336"
+        android:contentDescription="Feedback"
+        android:drawableTop="@drawable/ic_services"
+        android:paddingTop="20dp"
+        android:text="Contact\nUs"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:textStyle=""
 
-    <LinearLayout
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintDimensionRatio="5:5.05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/databttn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="140dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="-20dp"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Updates"
+        android:textColor="@color/transparentBlack"
+        android:textSize="12sp"
+        android:textStyle="bold"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Updates"
-                android:textColor="@color/transparentBlack"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+        app:layout_constraintBottom_toTopOf="@id/notification_dashList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
-            <TextView
-                android:id="@+id/expand_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="10dp"
-                android:text="View All"
-                android:textColor="#037C56"
-                android:textSize="12sp" />
+    <TextView
+        android:id="@+id/expand_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="View All"
+        android:textColor="#037C56"
 
-        </RelativeLayout>
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/notification_dashList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:padding="0dp">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/notification_dashList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/white"
+        android:divider="#0F89E0"
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/notification_dashList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                android:divider="#0F89E0"
-                android:dividerHeight="0dp"
-                android:drawSelectorOnTop="false"
-                android:overScrollMode="never" />
+        android:dividerHeight="0dp"
+        android:drawSelectorOnTop="false"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2"/>
 
-        </LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/twitter_FeedList"
+        app:layout_constraintGuide_percent="0.62106705"
+        app:layout_constraintTop_toBottomOf="@id/notification_dashList" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginBottom="-20dp"
-            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/twitter_icon"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginStart="-55dp"
-                android:src="@drawable/twitter_logo" />
+        android:src="@drawable/twitter_logo"
+        app:layout_constraintBottom_toTopOf="@+id/twitter_FeedList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
 
-            <TextView
-                android:id="@+id/expand_tweets"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:text="View All"
-                android:textColor="#037C56"
-                android:textSize="12sp" />
+    <TextView
+        android:id="@+id/expand_tweets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
 
-        </RelativeLayout>
+        android:text="View All"
+        android:textColor="#037C56"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/twitter_FeedList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:padding="0dp">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/twitter_FeedList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/twitter_FeedList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#0F89E0"
-                android:dividerHeight="0dp"
-                android:drawSelectorOnTop="false" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+        android:divider="#0F89E0"
+        android:dividerHeight="0dp"
+        android:drawSelectorOnTop="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
+
+</android.support.constraint.ConstraintLayout>

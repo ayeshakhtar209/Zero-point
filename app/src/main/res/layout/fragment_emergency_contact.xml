@@ -44,26 +44,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:text="@string/police_title" />
+            android:text="@string/police_title"
+            android:textAlignment="textStart"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_dialpad_black_24dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end" />
 
         <TextView
             android:id="@+id/police_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:layout_marginEnd="20dp"
-            android:text="@string/police" />
+            android:text="@string/police"
+            android:visibility="gone"/>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/backgroundGrey"/>
 
     <LinearLayout
         android:id="@+id/ll_fire_brigade"
@@ -85,27 +86,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:text="@string/fire_brigade_title" />
+            android:text="@string/fire_brigade_title"
+            android:textAlignment="textStart"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end"
+            android:src="@drawable/ic_dialpad_black_24dp" />
 
         <TextView
             android:id="@+id/fire_brigade_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:layout_marginEnd="20dp"
-            android:text="@string/fireBrigade" />
+            android:text="@string/fireBrigade"
+            android:visibility="gone"/>
 
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/backgroundGrey"/>
 
     <LinearLayout
         android:id="@+id/ll_ambulance"
@@ -119,9 +121,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:text="@string/ambulance_title" />
+            android:text="@string/ambulance_title"
+            android:textAlignment="textStart"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end"
+            android:src="@drawable/ic_dialpad_black_24dp" />
 
         <TextView
             android:id="@+id/ambulance_number"
@@ -129,25 +139,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:gravity="end"
-            android:text="@string/ambulance" />
+            android:text="@string/ambulance"
+            android:visibility="gone" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/closeButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
-
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_round_corner"
         android:backgroundTint="@color/grey_85"
-
+        android:elevation="0.75dp"
         android:text="Cancel"
-        android:textColor="@color/black"
         android:textAllCaps="false"
-
-        style="?android:attr/borderlessButtonStyle"
-        android:elevation="0.75dp"/>
+        android:textColor="@color/black" />
 
 </LinearLayout>
