@@ -154,7 +154,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_round_corner"
         android:backgroundTint="@color/grey_85"
-        android:elevation="0.75dp"
+        android:elevation="0dp"
         android:text="Cancel"
         android:textAllCaps="false"
         android:textColor="@color/black" />

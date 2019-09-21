@@ -112,6 +112,6 @@
         android:textColor="@color/black"
 
         style="?android:attr/borderlessButtonStyle"
-        android:elevation="0.75dp"/>
+        android:elevation="0dp"/>
 
 </LinearLayout>

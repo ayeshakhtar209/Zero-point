@@ -13,21 +13,17 @@ public class CustomViewPager extends ViewPager {
         this.disable = false;
     }
 
-    @Override
+/*    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-
         if(this.disable)
             return false;
-
         return super.onTouchEvent(event);
-    }
+    }*/
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
         if(this.disable)
-        return false;
-
+            return false;
         return super.onTouchEvent(event);
     }
 
